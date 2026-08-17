@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#edf3fb">
+  <title>The Commission | Elite Ambassador Network</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+tailwind.config = {
+      important: '#publicHomepage',
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'system-ui', 'sans-serif'],
+            display: ['Manrope', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f2ff',
+              100: '#e2e5ff',
+              300: '#aeb7ff',
+              400: '#8996ff',
+              500: '#5b6ff9',
+              600: '#4c5fe4',
+            },
+            money: {
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+            }
+          },
+          keyframes: {
+            floaty: {
+              '0%,100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            heroZoom: {
+              '0%': { transform: 'scale(1)' },
+              '100%': { transform: 'scale(1.08)' },
+            },
+            pulseSoft: {
+              '0%,100%': { transform: 'scale(1)', opacity: '1' },
+              '50%': { transform: 'scale(1.04)', opacity: '.92' },
+            },
+            slideInRight: {
+              '0%': { transform: 'translateX(120%)', opacity: 0 },
+              '100%': { transform: 'translateX(0)', opacity: 1 },
+            },
+            slideOutRight: {
+              '0%': { transform: 'translateX(0)', opacity: 1 },
+              '100%': { transform: 'translateX(120%)', opacity: 0 },
+            },
+          },
+          animation: {
+            floaty: 'floaty 6s ease-in-out infinite',
+            heroZoom: 'heroZoom 8s ease-in-out infinite alternate',
+            pulseSoft: 'pulseSoft 2.6s ease-in-out infinite',
+            slideInRight: 'slideInRight .5s cubic-bezier(.4,0,.2,1) forwards',
+            slideOutRight: 'slideOutRight .5s cubic-bezier(.4,0,.2,1) forwards',
+          },
+          boxShadow: {
+            soft: '12px 12px 28px rgba(134,151,181,.20), -8px -8px 24px rgba(255,255,255,.82)',
+            strong: '0 18px 44px rgba(72,91,132,.18)',
+          }
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20260815-unified-5">
+  <link rel="stylesheet" href="marketing.css?v=20260815-unified-4">
+</head>
+<body class="public-mode">
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <div class="ambient ambient-c"></div>
+
+  <div id="publicHomepageMount">
+  <section id="publicHomepage" class="public-homepage font-sans antialiased selection:bg-brand-500 selection:text-white" aria-label="The Commission homepage">
+
+<div class="marketing-shell">
+    <header class="device-top px-4 pt-3 pb-3">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center shrink-0 shadow-lg">
+            <i class="fas fa-link text-sm"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="font-display font-bold text-[1.22rem] leading-none text-slate-900 truncate">The<span class="text-brand-600">Commission</span></div>
+            <div class="text-[9px] font-bold uppercase tracking-[0.22em] text-slate-500">Elite Ambassador Network</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button type="button" data-auth-mode="signin" class="rounded-full px-2.5 py-2 text-[10px] font-bold text-slate-600 hover:text-brand-600">Sign in</button>
+          <button type="button" data-auth-mode="signup" data-auth-plan="standard" class="marketing-primary-btn rounded-full px-3.5 py-2 text-[11px] font-bold">Join Free</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-scroll" id="mainScroll">
+      <section class="hero px-4 pt-4 pb-4">
+        <div class="hero-slide active" style="background-image:url('https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+        <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+        <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full hero-badge text-[11px] font-bold mb-4 animate-floaty shadow-lg">
+            <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+            Ambassador Registration Now Open
+          </div>
+
+          <div class="mt-2">
+            <h1 id="heroSlider" class="font-display text-[1.96rem] leading-[0.98] font-black text-white min-h-[98px] drop-shadow-lg">
+              Get paid for referring hotels
+            </h1>
+            <p class="text-[13px] leading-[1.15] text-white mt-0.5 max-w-[280px] font-medium">
+              Free Registration. Free Money. Zero risk on your side.
+            </p>
+          </div>
+
+          <div class="mt-10 hero-panel rounded-[1.8rem] p-0 reveal-scale">
+            <button type="button" data-auth-mode="signup" data-auth-plan="standard" class="w-full marketing-primary-btn rounded-[1.05rem] px-4 py-3 text-[13px] font-bold flex items-center justify-center gap-2.5">
+              Claim Your Free Position <i class="fas fa-arrow-right text-[12px]"></i>
+            </button>
+
+            <div class="grid grid-cols-3 gap-2 mt-3.5 text-center">
+              <div class="hero-stat px-1 py-2.5">
+                <div class="text-[18px] font-black text-white">0₦</div>
+                <div class="text-[10px] mt-1 leading-tight font-semibold text-white/80">Required to Start</div>
+              </div>
+              <div class="hero-stat px-1 py-2.5">
+                <div class="text-[18px] font-black text-white">100%</div>
+                <div class="text-[10px] mt-1 leading-tight font-semibold text-white/80">Friday Payouts</div>
+              </div>
+              <div class="hero-stat px-1 py-2.5">
+                <div class="text-[18px] font-black text-white">100%</div>
+                <div class="text-[10px] mt-1 leading-tight font-semibold text-white/80">Performance Based</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="publicMetricsSection" class="px-4 py-4 hidden" aria-label="Verified platform activity">
+        <div class="metrics-banner px-3 py-3 reveal-up">
+          <div class="metrics-grid">
+            <div class="metric-card metric-cyan" data-public-metric-card="commission-paid">
+              <div class="metric-top">
+                <div class="metric-icon"><i class="fas fa-money-bill-wave"></i></div>
+                <div class="metric-number" data-public-stat="commission-paid">—</div>
+              </div>
+              <div class="metric-label" data-public-label="commission-paid">Commission paid</div>
+            </div>
+
+            <div class="metric-card metric-green" data-public-metric-card="completed-stays">
+              <div class="metric-top">
+                <div class="metric-icon"><i class="fas fa-bed"></i></div>
+                <div class="metric-number" data-public-stat="completed-stays">—</div>
+              </div>
+              <div class="metric-label" data-public-label="completed-stays">Completed referred stays</div>
+            </div>
+
+            <div class="metric-card metric-indigo" data-public-metric-card="registered-ambassadors">
+              <div class="metric-top">
+                <div class="metric-icon"><i class="fas fa-user-group"></i></div>
+                <div class="metric-number" data-public-stat="registered-ambassadors">—</div>
+              </div>
+              <div class="metric-label" data-public-label="registered-ambassadors">Registered Ambassadors</div>
+            </div>
+
+            <div class="metric-card metric-amber" data-public-metric-card="active-properties">
+              <div class="metric-top">
+                <div class="metric-icon"><i class="fas fa-building"></i></div>
+                <div class="metric-number" data-public-stat="active-properties">—</div>
+              </div>
+              <div class="metric-label" data-public-label="active-properties">Active properties</div>
+            </div>
+          </div>
+
+          <div class="airbnb-banner metric-airbnb" data-public-metric-card="cities-covered">
+            <div class="metric-copy">
+              <div class="metric-top justify-center">
+                <div class="metric-icon"><i class="fas fa-location-dot"></i></div>
+                <div class="metric-number" data-public-stat="cities-covered">—</div>
+              </div>
+              <div class="metric-label" data-public-label="cities-covered">Cities covered</div>
+            </div>
+          </div>
+          <p id="publicMetricsStatus" class="text-center text-[9px] text-slate-500 font-semibold mt-3"></p>
+        </div>
+      </section>
+
+<section class="px-4 py-4">
+        <div class="property-section reveal-up">
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div>
+              <div class="text-[10px] font-black tracking-[0.22em] uppercase text-slate-500 mb-1.5">Discover</div>
+              <h2 class="font-display text-[1.6rem] leading-tight font-black text-slate-900">Recommended properties</h2>
+            </div>
+            <button type="button" data-app-route="properties" class="text-[12px] font-bold text-indigo-500 mt-2">See all in app</button>
+          </div>
+
+          <div class="property-carousel hide-scrollbar" id="propertyCarousel">
+            <article class="marketing-property-card">
+              <div class="property-image-wrap">
+                <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Amada Grand Suites">
+                <div class="property-badge"><i class="fas fa-star"></i> 4.8</div>
+                <div class="property-fav"><i class="far fa-heart"></i></div>
+              </div>
+              <div class="property-name">Amada Grand Suites</div>
+              <div class="property-meta">Maiduguri, Borno • Top converter</div>
+              <div class="property-row">
+                <div class="property-price"><strong>₦65,000</strong> /night</div>
+                <div class="property-note green">25% commission</div>
+              </div>
+            </article>
+
+            <article class="marketing-property-card">
+              <div class="property-image-wrap">
+                <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="BluePeak Residence">
+                <div class="property-badge"><i class="fas fa-star"></i> 4.7</div>
+                <div class="property-fav"><i class="far fa-heart"></i></div>
+              </div>
+              <div class="property-name">BluePeak Residence</div>
+              <div class="property-meta">Abuja, FCT • Fast mover</div>
+              <div class="property-row">
+                <div class="property-price"><strong>₦90,000</strong> /night</div>
+                <div class="property-note blue">5% guest discount</div>
+              </div>
+            </article>
+
+            <article class="marketing-property-card">
+              <div class="property-image-wrap">
+                <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Palmwood Executive Stay">
+                <div class="property-badge"><i class="fas fa-star"></i> 4.9</div>
+                <div class="property-fav"><i class="far fa-heart"></i></div>
+              </div>
+              <div class="property-name">Palmwood Executive Stay</div>
+              <div class="property-meta">Jahi, Abuja • High booking value</div>
+              <div class="property-row">
+                <div class="property-price"><strong>₦55,000</strong> /night</div>
+                <div class="property-note slate">Top weekly seller</div>
+              </div>
+            </article>
+
+            <article class="marketing-property-card">
+              <div class="property-image-wrap">
+                <img src="https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="WhiteHouse Studio Luxe">
+                <div class="property-badge"><i class="fas fa-star"></i> 4.6</div>
+                <div class="property-fav"><i class="far fa-heart"></i></div>
+              </div>
+              <div class="property-name">WhiteHouse Studio Luxe</div>
+              <div class="property-meta">Gwarinpa, Abuja • Easy conversion</div>
+              <div class="property-row">
+                <div class="property-price"><strong>₦45,000</strong> /night</div>
+                <div class="property-note orange">Quick checkout</div>
+              </div>
+            </article>
+
+            <article class="marketing-property-card">
+              <div class="property-image-wrap">
+                <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bradford Luxe Stay">
+                <div class="property-badge"><i class="fas fa-star"></i> 4.8</div>
+                <div class="property-fav"><i class="far fa-heart"></i></div>
+              </div>
+              <div class="property-name">Bradford Luxe Stay</div>
+              <div class="property-meta">Gwarinpa, Abuja • Premium nights</div>
+              <div class="property-row">
+                <div class="property-price"><strong>₦70,000</strong> /night</div>
+                <div class="property-note cyan">24/7 light</div>
+              </div>
+            </article>
+          </div>
+
+          <div class="property-dots" id="propertyDots">
+            <button class="property-dot active" type="button" aria-label="Go to property 1"></button>
+            <button class="property-dot" type="button" aria-label="Go to property 2"></button>
+            <button class="property-dot" type="button" aria-label="Go to property 3"></button>
+            <button class="property-dot" type="button" aria-label="Go to property 4"></button>
+            <button class="property-dot" type="button" aria-label="Go to property 5"></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="px-4 py-4">
+        <div class="mb-4 reveal-up">
+          <h2 class="font-display text-[1.65rem] leading-tight font-bold text-slate-900">How effortless is this?</h2>
+          <p class="text-slate-700 text-[12px] mt-1.5 font-medium">No selling products. No chasing people. Just normal everyday conversations.</p>
+        </div>
+
+        <div class="space-y-3.5">
+          <div class="chat-guest p-4 reveal-left">
+            <div class="text-[10px] font-bold tracking-[0.20em] uppercase text-slate-500 mb-2.5">The Guest</div>
+            <p class="text-[13px] leading-relaxed font-semibold text-slate-900">I want a hotel to chill this Saturday... Do you know any good hotel in mind?</p>
+            <div class="text-[10px] font-bold text-slate-500 mt-2.5 text-right">10:42 AM</div>
+          </div>
+
+          <div class="chat-you p-4 reveal-right">
+            <div class="text-[10px] font-bold tracking-[0.20em] uppercase text-brand-600 mb-2.5">You (Ambassador)</div>
+            <p class="text-[13px] leading-relaxed font-semibold text-slate-900">Yeah I do! You can go to Jane Luxury Suites in Zone 8. If you use my Ambassador link, they'll give you a discount on the room, and I earn a commission too. You'll definitely like the vibe there.</p>
+            <div class="text-[10px] font-bold text-brand-600 mt-2.5 text-right">10:45 AM</div>
+          </div>
+
+          <div class="system-card p-4 text-center reveal-left">
+            <i class="fas fa-walking text-slate-700 mb-2 text-lg"></i>
+            <p class="text-[12px] text-slate-900 font-bold">Your guest visits the hotel, is highly impressed, and pays for the weekend.</p>
+          </div>
+
+          <div class="credit-card p-4 flex items-center gap-3 reveal-right">
+            <div class="w-11 h-11 rounded-2xl bg-green-100 flex items-center justify-center shrink-0">
+              <i class="fas fa-bell text-money-600 text-lg animate-pulseSoft"></i>
+            </div>
+            <div>
+              <p class="text-[10px] text-money-700 font-bold uppercase tracking-wider">Credit Alert</p>
+              <p class="text-slate-900 font-black text-[14px] mt-0.5">Direct Commission: <span class="text-money-600">₦12,000</span></p>
+              <p class="text-[11px] text-slate-600 font-medium mt-1">Thank you, Ambassador.</p>
+            </div>
+          </div>
+
+          <div class="chat-guest p-4 reveal-left">
+            <div class="text-[10px] font-bold tracking-[0.20em] uppercase text-slate-500 mb-2.5">The Guest</div>
+            <p class="text-[13px] leading-relaxed font-semibold text-slate-900">Bro, that hotel was 10/10. Wait, you actually got paid just for sending me that link?? How does that work?</p>
+            <div class="text-[10px] font-bold text-slate-500 mt-2.5 text-right">Sunday, 2:15 PM</div>
+          </div>
+
+          <div class="chat-you p-4 reveal-right">
+            <div class="text-[10px] font-bold tracking-[0.20em] uppercase text-brand-600 mb-2.5">You (Ambassador)</div>
+            <p class="text-[13px] leading-relaxed font-semibold text-slate-900">Exactly! It's 100% free to join. Register under my network, give your own links to your colleagues, and we both get paid whenever they book using your code.</p>
+            <div class="text-[10px] font-bold text-brand-600 mt-2.5 text-right">2:18 PM</div>
+          </div>
+
+          <div class="network-card p-4 flex items-center gap-3 reveal-left">
+            <div class="w-11 h-11 rounded-2xl bg-cyan-100 flex items-center justify-center shrink-0">
+              <i class="fas fa-sitemap text-brand-600 text-lg"></i>
+            </div>
+            <div>
+              <p class="text-[10px] text-brand-700 font-bold uppercase tracking-wider">Network Dividend</p>
+              <p class="text-slate-900 font-black text-[14px] mt-0.5">Downline Earning: <span class="text-money-600">+ ₦3,500</span></p>
+              <p class="text-[11px] text-slate-600 font-medium mt-1">Passive income secured.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="plans" class="px-4 py-4">
+        <div class="plans-shell reveal-up">
+          <div class="plans-heading">
+            <div class="plans-brand-mark"><i class="fas fa-layer-group"></i></div>
+            <h2 class="font-display text-[1.75rem] leading-tight font-black text-slate-900">Earn More Money</h2>
+            <p class="text-[11px] leading-relaxed text-slate-600 font-medium mt-2">Start free. Upgrade to access more of the network beneath you.</p>
+          </div>
+
+          <div class="pricing-stack">
+            <article class="plan-pricing-card plan-standard is-selected" data-plan-card="standard" tabindex="0" role="button" aria-label="Select Standard plan">
+              <div class="plan-card-top">
+                <div class="plan-tier-icon text-sky-600"><i class="fas fa-star"></i></div>
+                <div>
+                  <div class="plan-card-name">STANDARD</div>
+                  <span class="plan-depth-badge">1 Network Depth</span>
+                </div>
+                <div class="plan-card-price text-sky-700">FREE</div>
+              </div>
+              <div class="plan-earnings-grid">
+                <div class="plan-earning-box">
+                  <div class="plan-earning-label">Up to Direct Earnings</div>
+                  <div class="plan-earning-value">₦150,000</div>
+                </div>
+                <div class="plan-earning-box">
+                  <div class="plan-earning-label">Network Earnings</div>
+                  <div class="plan-earning-value">₦3,000</div>
+                </div>
+              </div>
+              <div class="plan-card-bottom">
+                <div class="plan-network-count"><i class="fas fa-users"></i><span>from 2 Ambassadors</span></div>
+                <button type="button" class="plan-card-action" data-plan-action="standard">Start Free</button>
+              </div>
+            </article>
+
+            <article class="plan-pricing-card plan-silver" data-plan-card="silver" tabindex="0" role="button" aria-label="Select Silver plan">
+              <div class="plan-card-top">
+                <div class="plan-tier-icon"><i class="fas fa-shield-halved"></i></div>
+                <div>
+                  <div class="plan-card-name">SILVER</div>
+                  <span class="plan-depth-badge">2 Network Depths</span>
+                </div>
+                <div class="plan-card-price">₦2,500<small>/ month</small></div>
+              </div>
+              <div class="plan-earnings-grid">
+                <div class="plan-earning-box">
+                  <div class="plan-earning-label">Up to Direct Earnings</div>
+                  <div class="plan-earning-value">₦150,000</div>
+                </div>
+                <div class="plan-earning-box">
+                  <div class="plan-earning-label">Network Earnings</div>
+                  <div class="plan-earning-value">₦9,000</div>
+                </div>
+              </div>
+              <div class="plan-card-bottom">
+                <div class="plan-network-count"><i class="fas fa-users"></i><span>from 6 Ambassadors</span></div>
+                <button type="button" class="plan-card-action" data-plan-action="silver">Upgrade to Silver</button>
+              </div>
+            </article>
+
+            <article class="plan-pricing-card plan-gold" data-plan-card="gold" tabindex="0" role="button" aria-label="Select Gold plan">
+              <div class="plan-card-top">
+                <div class="plan-tier-icon"><i class="fas fa-crown"></i></div>
+                <div>
+                  <div class="plan-card-name">GOLD</div>
+                  <span class="plan-depth-badge">5 Network Depths</span>
+                </div>
+                <div class="plan-card-price">₦15,000<small>/ month</small></div>
+              </div>
+              <div class="plan-earnings-grid">
+                <div class="plan-earning-box">
+                  <div class="plan-earning-label">Up to Direct Earnings</div>
+                  <div class="plan-earning-value">₦150,000</div>
+                </div>
+                <div class="plan-earning-box">
+                  <div class="plan-earning-label">Network Earnings</div>
+                  <div class="plan-earning-value">₦74,400</div>
+                </div>
+              </div>
+              <div class="plan-card-bottom">
+                <div class="plan-network-count"><i class="fas fa-users"></i><span>from 62 Ambassadors</span></div>
+                <button type="button" class="plan-card-action" data-plan-action="gold">Go Gold</button>
+              </div>
+            </article>
+
+            <article class="plan-pricing-card plan-diamond" data-plan-card="diamond" tabindex="0" role="button" aria-label="Select Diamond plan">
+              <div class="plan-power-badge"><i class="fas fa-gem"></i> MOST POWERFUL</div>
+              <div class="plan-card-top">
+                <div class="plan-tier-icon"><i class="fas fa-gem"></i></div>
+                <div>
+                  <div class="plan-card-name">DIAMOND</div>
+                  <span class="plan-depth-badge">9 Network Depths</span>
+                </div>
+                <div class="plan-card-price">₦50,000<small>/ month</small></div>
+              </div>
+              <div class="plan-earnings-grid">
+                <div class="plan-earning-box">
+                  <div class="plan-earning-label">Up to Direct Earnings</div>
+                  <div class="plan-earning-value">₦150,000</div>
+                </div>
+                <div class="plan-earning-box">
+                  <div class="plan-earning-label">Network Earnings</div>
+                  <div class="plan-earning-value">₦996,450</div>
+                </div>
+              </div>
+              <div class="plan-card-bottom">
+                <div class="plan-network-count"><i class="fas fa-users"></i><span>from 1,022 Ambassadors</span></div>
+                <button type="button" class="plan-card-action" data-plan-action="diamond">Unlock Diamond</button>
+              </div>
+            </article>
+          </div>
+
+          <p class="plans-footnote">Illustrative figures based on qualifying hotel/apartment bookings and active network depth. Actual earnings vary.</p>
+        </div>
+      </section>
+
+      <section id="calculator" class="px-4 py-4">
+        <div class="section-card p-4 reveal-scale">
+          <div class="mb-5">
+            <h2 class="font-display text-[1.6rem] leading-tight font-bold text-slate-900">Calculate Your Passive Wealth</h2>
+            <p class="text-slate-600 text-[12px] mt-1.5">Choose your plan, then see how direct bookings and your accessible network can affect your monthly earnings.</p>
+          </div>
+
+          <div class="mb-4">
+            <div class="flex items-center justify-between gap-3 mb-2.5">
+              <h4 class="text-[12px] font-black text-slate-800">Choose Your Plan</h4>
+              <span id="selectedPlanPrice" class="text-[11px] font-black text-brand-600">FREE</span>
+            </div>
+            <div class="plan-selector-grid" id="planSelector">
+              <button type="button" class="plan-option selected" data-plan="standard">
+                <div class="plan-name">STANDARD</div>
+                <div class="plan-mini">1 depth • 2 Ambassadors</div>
+              </button>
+              <button type="button" class="plan-option" data-plan="silver">
+                <div class="plan-name">SILVER</div>
+                <div class="plan-mini">2 depths • 6 Ambassadors</div>
+              </button>
+              <button type="button" class="plan-option" data-plan="gold">
+                <div class="plan-name">GOLD</div>
+                <div class="plan-mini">5 depths • 62 Ambassadors</div>
+              </button>
+              <button type="button" class="plan-option" data-plan="diamond">
+                <div class="plan-name">DIAMOND</div>
+                <div class="plan-mini">9 depths • 1,022 Ambassadors</div>
+              </button>
+            </div>
+          </div>
+
+          <div class="plan-status-strip grid grid-cols-3 gap-2 mb-5 text-center">
+            <div>
+              <div id="planDepth" class="status-value">1</div>
+              <div class="status-label">Network Depth</div>
+            </div>
+            <div>
+              <div id="planAmbassadors" class="status-value">2</div>
+              <div class="status-label">Accessible Ambassadors</div>
+            </div>
+            <div>
+              <div id="planShare" class="status-value">100%</div>
+              <div class="status-label">Network Share</div>
+            </div>
+          </div>
+
+          <div class="space-y-5">
+            <div class="soft-panel p-4">
+              <div class="flex justify-between items-start gap-3 mb-3.5">
+                <div>
+                  <h4 class="text-[13px] font-bold text-slate-800">Direct Guest Bookings</h4>
+                  <p class="text-[11px] text-slate-500 font-medium">₦75,000 average booking × 8% direct commission.</p>
+                </div>
+                <div class="bg-white px-3 py-2 rounded-xl min-w-[66px] text-center border border-slate-200">
+                  <span id="directCount" class="text-[18px] font-black text-brand-600">3</span>
+                </div>
+              </div>
+              <input type="range" id="directSlider" min="0" max="25" value="3" class="w-full">
+              <div class="flex justify-between text-[10px] font-bold text-slate-400 mt-2 px-1">
+                <span>0</span>
+                <span class="text-brand-500">Active 3</span>
+                <span>25</span>
+              </div>
+            </div>
+
+            <div class="soft-panel p-4">
+              <div class="flex justify-between items-start gap-3 mb-3.5">
+                <div>
+                  <h4 class="text-[13px] font-bold text-slate-800">Bookings Per Accessible Ambassador</h4>
+                  <p class="text-[11px] text-slate-500 font-medium">Each qualifying booking creates a ₦1,500 network pool.</p>
+                </div>
+                <div class="bg-white px-3 py-2 rounded-xl min-w-[66px] text-center border border-slate-200">
+                  <span id="networkCount" class="text-[18px] font-black text-slate-700">1</span>
+                </div>
+              </div>
+              <input type="range" id="networkSlider" min="0" max="5" value="1" step="1" class="w-full">
+              <div class="flex justify-between text-[10px] font-bold text-slate-400 mt-2 px-1">
+                <span>0</span>
+                <span>5 each</span>
+              </div>
+              <p id="networkBookingSummary" class="calc-small-note mt-3">2 accessible Ambassadors × 1 booking = 2 qualifying network bookings.</p>
+            </div>
+          </div>
+
+          <div class="mt-4 relative">
+            <div id="resultsCard" class="calculator-results rounded-[1.6rem] p-4 relative overflow-hidden reveal-scale">
+              <div class="space-y-3.5">
+                <div class="calc-row">
+                  <span class="text-slate-300 text-[12px] font-medium">Direct Earnings (8%)</span>
+                  <span id="directEarnings" class="text-white font-bold text-[15px]">₦18,000</span>
+                </div>
+                <div class="calc-row">
+                  <span class="text-slate-300 text-[12px] font-medium flex items-center gap-2">Network Earnings <i id="networkStatusIcon" class="fas fa-unlock text-money-400 text-[10px]"></i></span>
+                  <span id="networkEarnings" class="text-white font-bold text-[15px]">₦3,000</span>
+                </div>
+                <div class="calc-row">
+                  <span class="text-slate-300 text-[12px] font-medium">Monthly Plan Cost</span>
+                  <span id="planCost" class="text-white font-bold text-[15px]">FREE</span>
+                </div>
+                <div class="calc-total-box p-4 text-center">
+                  <span class="text-[10px] text-brand-400 font-bold uppercase tracking-widest">Est. Monthly Earnings After Plan Cost</span>
+                  <div id="totalEarnings" class="font-display text-[32px] font-black text-brand-400 mt-2 transition-colors">₦21,000</div>
+                </div>
+                <div id="lockPanel" class="lock-panel p-4 transition-all duration-300" style="display:none;">
+                  <div class="flex items-start gap-3">
+                    <div class="lock-chip">
+                      <i class="fas fa-lock text-lg"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h4 class="text-white font-bold text-[17px] leading-tight">Network Vault Locked</h4>
+                      <p class="text-[12px] text-slate-300 mt-1.5 leading-relaxed">You have <span id="lockedAmount" class="font-black text-white">₦0</span> in estimated network earnings waiting behind Active Status.</p>
+                    </div>
+                  </div>
+                  <div class="unlock-hint mt-4 px-4 py-3">
+                    <p class="text-[12px] text-slate-200 font-medium">Get <strong id="remainingDirects" class="text-brand-400 text-[16px]">3</strong> more direct bookings to unlock.</p>
+                  </div>
+                </div>
+                <p id="planMathNote" class="text-[10px] leading-relaxed text-slate-400 font-medium">Standard keeps 100% of eligible network earnings across 1 unlocked depth.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-4 py-4">
+        <div class="section-card p-4 reveal-up">
+          <h2 class="font-display text-[1.55rem] leading-tight font-bold text-slate-800 mb-4">Want to get more money?</h2>
+          <div class="soft-panel p-4 text-[13px] text-slate-600 font-medium leading-relaxed">
+            <p class="mb-4">
+              Refer <span class="text-brand-600 font-bold">two Ambassadors</span> and earn commission from their referrals. Whenever they refer someone, you too get a commission—<strong class="text-money-600">free money for you.</strong>
+            </p>
+            <p class="mb-4">
+              Every guest booking made by anyone under you puts money in your account. You don’t need to sell a product. You don’t need to chase people.
+            </p>
+            <div class="rounded-[1.2rem] bg-white px-4 py-4 border border-slate-200 shadow-sm">
+              <p class="text-[16px] font-display font-bold text-brand-600 italic text-center leading-snug">
+                "You just point people to hotels they’re already looking for — and collect."
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-6 reveal-scale">
+            <div class="inline-block bg-brand-100 text-brand-600 px-4 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase mb-3">
+              The Compound Effect
+            </div>
+            <h2 class="font-display text-[1.7rem] font-black text-slate-800 mb-2 tracking-tight">Binary Power</h2>
+            <p class="text-[14px] text-slate-700 font-semibold">This is where the real money compounds.</p>
+            <p class="text-[11px] text-slate-500 mt-2.5">Most referral programs pay you once. This one pays you over and over from the people under you.</p>
+          </div>
+
+          <div class="mt-5 quick-tree-card reveal-scale">
+            <div class="flex flex-col items-center">
+              <div class="marketing-tree-node-dark rounded-[18px] px-5 py-4 text-center shadow-xl w-[74%]">
+                <span class="text-[17px] font-bold">You bring <span class="text-brand-300 text-[24px]">2</span></span>
+              </div>
+              <div class="tree-line-v h-5"></div>
+              <div class="marketing-tree-node rounded-[18px] px-5 py-3.5 text-center w-[66%]">
+                <span class="text-[15px] font-bold text-slate-700">They each bring <span class="text-brand-500 text-[22px]">2</span></span>
+              </div>
+              <div class="tree-line-v h-4"></div>
+              <div class="tree-split w-full"></div>
+              <div class="grid grid-cols-2 gap-3 w-full px-1">
+                <div class="marketing-tree-node rounded-[16px] px-4 py-3 text-center">
+                  <span class="text-[13px] font-bold text-slate-700">Those 4 bring <span class="text-brand-500 text-[18px]">8</span></span>
+                </div>
+                <div class="marketing-tree-node rounded-[16px] px-4 py-3 text-center">
+                  <span class="text-[13px] font-bold text-slate-700">Those 8 bring <span class="text-brand-500 text-[18px]">16</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="see-how-you-earn" class="px-4 py-4">
+        <div class="section-card p-4 reveal-up">
+          <div class="text-center mb-5">
+            <h2 class="font-display text-[1.6rem] leading-tight font-black text-slate-800 mb-2">See How You Earn</h2>
+            <p class="text-slate-600 text-[12px] leading-relaxed font-medium">
+              Our powerful network ensures everyone is rewarded. When an Ambassador's guest books a stay, the commission flows <strong class="text-brand-600">up through the network</strong>.
+            </p>
+          </div>
+
+          <div class="soft-panel p-4 text-center mb-5 reveal-scale">
+            <span class="block text-[11px] text-slate-500 mb-3 font-bold uppercase tracking-wide">Base Formula: 10% of Booking</span>
+            <div class="flex flex-col gap-3 text-[12px] font-bold justify-center">
+              <span class="text-brand-600 flex items-center justify-center gap-2"><div class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center"><i class="fas fa-bullseye"></i></div> Direct: 80% of Base (8%)</span>
+              <span class="text-money-600 flex items-center justify-center gap-2"><div class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center"><i class="fas fa-layer-group"></i></div> Network Pool: 20% of Base</span>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="soft-panel p-2.5 overflow-x-auto hide-scrollbar reveal-scale">
+              <div class="min-w-[760px] px-3 py-3">
+                <div class="flex w-full justify-center">
+                  <div class="bg-slate-950 rounded-[1.35rem] p-4 text-center text-white w-[250px] shadow-xl">
+                    <div class="inline-block bg-brand-500 text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md mb-2">You</div>
+                    <div class="font-display font-black text-[19px] mb-2.5">Referrer</div>
+                    <div class="space-y-1 text-[11px] font-bold">
+                      <div class="flex justify-between"><span class="text-slate-300">Direct Earn:</span><span class="text-brand-400">₦0</span></div>
+                      <div class="flex justify-between"><span class="text-slate-300">Network Earn:</span><span class="text-money-400">+ ₦17,200</span></div>
+                    </div>
+                    <div class="bg-white/10 rounded-lg py-2.5 border border-white/10 mt-3">
+                      <div class="text-[9px] text-slate-300 uppercase tracking-widest font-black">Total Payout</div>
+                      <div class="text-money-400 font-black text-[24px]">₦17,200</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="w-full h-[54px] relative pointer-events-none">
+                  <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 760 54">
+                    <line x1="380" y1="0" x2="190" y2="54" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="380" y1="0" x2="570" y2="54" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+
+                <div class="grid grid-cols-2 gap-[120px] px-[70px]">
+                  <div class="small-card bg-white border border-slate-200 p-3.5">
+                    <div class="font-display font-bold text-slate-900 text-[15px] mb-0.5">Ngozi A.</div>
+                    <div class="text-[9px] text-slate-700 border-b border-slate-200 pb-2 mb-2.5 font-semibold">(Guest: ₦50k Booking)</div>
+                    <div class="space-y-1 text-[11px] font-bold mb-2.5">
+                      <div class="flex justify-between"><span class="text-slate-700">Direct:</span><span class="text-brand-600">₦4,000</span></div>
+                      <div class="flex justify-between"><span class="text-slate-700">Network:</span><span class="text-money-600">+ ₦6,000</span></div>
+                    </div>
+                    <div class="bg-green-50 text-money-600 font-black text-[15px] rounded-lg py-1.5 border border-green-100 text-center">₦10,000</div>
+                  </div>
+                  <div class="small-card bg-white border border-slate-200 p-3.5">
+                    <div class="font-display font-bold text-slate-900 text-[15px] mb-0.5">Tunde B.</div>
+                    <div class="text-[9px] text-slate-700 border-b border-slate-200 pb-2 mb-2.5 font-semibold">(Guest: ₦70k Booking)</div>
+                    <div class="space-y-1 text-[11px] font-bold mb-2.5">
+                      <div class="flex justify-between"><span class="text-slate-700">Direct:</span><span class="text-brand-600">₦5,600</span></div>
+                      <div class="flex justify-between"><span class="text-slate-700">Network:</span><span class="text-money-600">+ ₦11,200</span></div>
+                    </div>
+                    <div class="bg-green-50 text-money-600 font-black text-[15px] rounded-lg py-1.5 border border-green-100 text-center">₦16,800</div>
+                  </div>
+                </div>
+
+                <div class="w-full h-[58px] relative pointer-events-none">
+                  <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 760 58">
+                    <line x1="190" y1="0" x2="95" y2="58" stroke="#d7e0e9" stroke-width="2.2" stroke-linecap="round"/>
+                    <line x1="190" y1="0" x2="285" y2="58" stroke="#d7e0e9" stroke-width="2.2" stroke-linecap="round"/>
+                    <line x1="570" y1="0" x2="475" y2="58" stroke="#d7e0e9" stroke-width="2.2" stroke-linecap="round"/>
+                    <line x1="570" y1="0" x2="665" y2="58" stroke="#d7e0e9" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+
+                <div class="grid grid-cols-4 gap-3">
+                  <div class="small-card bg-white border border-slate-200 p-2.5">
+                    <div class="font-display font-bold text-slate-900 text-[13px] mb-0.5">David C.</div>
+                    <div class="text-[9px] text-slate-700 border-b border-slate-200 pb-1.5 mb-2 font-semibold">(₦350k Booking)</div>
+                    <div class="flex justify-between text-[10px] font-bold mb-1"><span class="text-slate-700">Dir:</span><span class="text-brand-600">₦28,000</span></div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2"><span class="text-slate-700">Net:</span><span class="text-slate-400">₦0</span></div>
+                    <div class="text-money-700 font-black text-[13px] bg-green-50 rounded-md py-1 border border-green-100 text-center">₦28,000</div>
+                  </div>
+                  <div class="small-card bg-white border border-slate-200 p-2.5">
+                    <div class="font-display font-bold text-slate-900 text-[13px] mb-0.5">Fatima D.</div>
+                    <div class="text-[9px] text-slate-700 border-b border-slate-200 pb-1.5 mb-2 font-semibold">(₦100k Booking)</div>
+                    <div class="flex justify-between text-[10px] font-bold mb-1"><span class="text-slate-700">Dir:</span><span class="text-brand-600">₦8,000</span></div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2"><span class="text-slate-700">Net:</span><span class="text-slate-400">₦0</span></div>
+                    <div class="text-money-700 font-black text-[13px] bg-green-50 rounded-md py-1 border border-green-100 text-center">₦8,000</div>
+                  </div>
+                  <div class="small-card bg-white border border-slate-200 p-2.5">
+                    <div class="font-display font-bold text-slate-900 text-[13px] mb-0.5">Samuel E.</div>
+                    <div class="text-[9px] text-slate-700 border-b border-slate-200 pb-1.5 mb-2 font-semibold">(₦30k Booking)</div>
+                    <div class="flex justify-between text-[10px] font-bold mb-1"><span class="text-slate-700">Dir:</span><span class="text-brand-600">₦2,400</span></div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2"><span class="text-slate-700">Net:</span><span class="text-slate-400">₦0</span></div>
+                    <div class="text-money-700 font-black text-[13px] bg-green-50 rounded-md py-1 border border-green-100 text-center">₦2,400</div>
+                  </div>
+                  <div class="small-card bg-white border border-slate-200 p-2.5">
+                    <div class="font-display font-bold text-slate-900 text-[13px] mb-0.5">Grace F.</div>
+                    <div class="text-[9px] text-slate-700 border-b border-slate-200 pb-1.5 mb-2 font-semibold">(₦600k Booking)</div>
+                    <div class="flex justify-between text-[10px] font-bold mb-1"><span class="text-slate-700">Dir:</span><span class="text-brand-600">₦48,000</span></div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2"><span class="text-slate-700">Net:</span><span class="text-slate-400">₦0</span></div>
+                    <div class="text-money-700 font-black text-[13px] bg-green-50 rounded-md py-1 border border-green-100 text-center">₦48,000</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center mt-2 reveal-scale">
+              <div class="inline-flex items-center gap-2 px-4 py-3 rounded-full bg-cyan-50 text-brand-600 text-[11px] font-bold shadow-sm border border-cyan-100">
+                <i class="fas fa-chart-network"></i> The Network Pool is divided equally by the number of active upliners.
+              </div>
+            </div>
+
+            <div class="text-center bg-slate-50 rounded-[1.4rem] p-4 border border-slate-200 reveal-up">
+              <p class="text-[13px] text-slate-700 font-medium leading-relaxed">
+                With an average of <strong class="text-slate-900 font-black">3 guest bookings a month</strong> multiplied by the compounding network above = <strong class="text-money-600 font-bold">your likely monthly earnings for doing zero work in network earnings</strong> and for just referring in direct earnings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="px-4 py-4">
+        <div class="section-card p-4 reveal-up">
+          <div class="mb-4">
+            <h2 class="font-display text-[1.55rem] leading-tight font-bold text-slate-900">Testimonials</h2>
+          </div>
+
+          <div class="space-y-3.5">
+            <div class="marketing-testimonial-card p-4 reveal-left">
+              <div class="flex items-start gap-3">
+                <img class="review-avatar w-12 h-12 rounded-2xl" src="https://i.pravatar.cc/120?img=12" alt="Testimonial avatar">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between gap-2">
+                    <p class="text-[13px] font-bold text-slate-900">Ngozi A.</p>
+                    <div class="stars text-[11px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                  </div>
+                  <p class="text-[12px] text-slate-600 mt-2 leading-relaxed">I sent one hotel link, my guest booked, and the payout came through exactly as promised.</p>
+                </div>
+              </div>
+            </div>
+            <div class="marketing-testimonial-card p-4 reveal-right">
+              <div class="flex items-start gap-3">
+                <img class="review-avatar w-12 h-12 rounded-2xl" src="https://i.pravatar.cc/120?img=32" alt="Testimonial avatar">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between gap-2">
+                    <p class="text-[13px] font-bold text-slate-900">Chidi M.</p>
+                    <div class="stars text-[11px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                  </div>
+                  <p class="text-[12px] text-slate-600 mt-2 leading-relaxed">The network side is my favorite part. Once the referrals started compounding, the system became much more powerful.</p>
+                </div>
+              </div>
+            </div>
+            <div class="marketing-testimonial-card p-4 reveal-left">
+              <div class="flex items-start gap-3">
+                <img class="review-avatar w-12 h-12 rounded-2xl" src="https://i.pravatar.cc/120?img=47" alt="Testimonial avatar">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between gap-2">
+                    <p class="text-[13px] font-bold text-slate-900">Fatima R.</p>
+                    <div class="stars text-[11px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                  </div>
+                  <p class="text-[12px] text-slate-600 mt-2 leading-relaxed">The whole flow feels easy to understand. It looks clean and it clearly explains how the money works.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="px-4 py-4">
+        <div class="faq-card p-4 reveal-up">
+          <div class="mb-4">
+            <h2 class="font-display text-[1.55rem] leading-tight font-bold text-slate-900">Frequently Asked Questions</h2>
+          </div>
+
+          <div class="space-y-3">
+            <div class="faq-item active reveal-left">
+              <button class="faq-question" type="button">
+                <span>Is this a Ponzi scheme?</span>
+                <span class="faq-icon"><i class="fas fa-plus text-[11px]"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p>No, money comes from real hotel bookings, not new members.</p>
+              </div>
+            </div>
+
+            <div class="faq-item reveal-right">
+              <button class="faq-question" type="button">
+                <span>Why is it free?</span>
+                <span class="faq-icon"><i class="fas fa-plus text-[11px]"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p>Hotels pay us to bring them guests. We share that revenue with you.</p>
+              </div>
+            </div>
+
+            <div class="faq-item reveal-left">
+              <button class="faq-question" type="button">
+                <span>How do I withdraw?</span>
+                <span class="faq-icon"><i class="fas fa-plus text-[11px]"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p>Direct to your local bank account every Friday.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-4 py-4">
+        <div class="section-card p-4 reveal-up">
+          <h2 class="font-display text-[1.75rem] leading-tight font-black text-slate-800 mb-5">You have two choices right now:</h2>
+
+          <div class="grid grid-cols-2 gap-3 mb-6">
+            <div class="rounded-[1.4rem] bg-slate-100 border border-slate-200 p-4 opacity-80 reveal-left">
+              <div class="w-10 h-10 bg-white rounded-2xl flex items-center justify-center mb-3 text-slate-400 shadow-sm">
+                <i class="fas fa-times text-lg"></i>
+              </div>
+              <p class="text-[13px] text-slate-600 font-semibold leading-relaxed">Keep scrolling and stay exactly where you are.</p>
+            </div>
+
+            <div class="rounded-[1.4rem] bg-slate-950 border border-slate-800 p-4 shadow-xl reveal-right">
+              <div class="w-10 h-10 bg-brand-500 rounded-2xl flex items-center justify-center mb-3 text-white shadow-lg">
+                <i class="fas fa-check text-lg font-bold"></i>
+              </div>
+              <p class="text-[13px] text-white font-bold leading-relaxed">
+                Claim your free position, refer two Ambassadors, and start collecting cash every time a guest books a stay.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3.5 mb-6 rounded-[1.55rem] bg-slate-50 p-4 border border-slate-200 reveal-scale">
+            <p class="text-[13px] text-slate-600 font-semibold flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-green-100 text-money-500 flex items-center justify-center shrink-0"><i class="fas fa-shield-check"></i></span> The registration is <strong class="text-slate-800">100% free.</strong>
+            </p>
+            <p class="text-[13px] text-slate-600 font-semibold flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-cyan-100 text-brand-500 flex items-center justify-center shrink-0"><i class="fas fa-satellite-dish animate-pulse"></i></span> The system is <strong class="text-slate-800">already live.</strong>
+            </p>
+            <div class="w-full h-px bg-slate-200"></div>
+            <p class="text-[16px] text-brand-600 font-black text-center mt-1">
+              The only thing missing is your decision.
+            </p>
+          </div>
+
+          <button type="button" data-auth-mode="signup" data-auth-plan="standard" class="w-full marketing-primary-btn rounded-[1.4rem] px-8 py-4 text-[15px] font-black uppercase tracking-wide flex flex-col items-center gap-1">
+            <span>Yes — Give Me My Free Position Now</span>
+            <span class="text-[10px] font-semibold opacity-90 tracking-normal normal-case">Takes 60 seconds. No credit card required.</span>
+          </button>
+        </div>
+      </section>
+
+      <footer class="bg-slate-950 text-slate-400 px-4 pt-7 pb-6 mt-4">
+        <div class="text-center">
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <i class="fas fa-link text-brand-400 text-lg"></i>
+            <span class="font-display font-bold text-[1.45rem] text-white">The<span class="text-brand-400">Commission</span></span>
+          </div>
+          <div class="flex justify-center gap-5 text-[11px] font-medium mb-5 flex-wrap">
+            <button type="button" data-legal="terms" class="hover:text-white transition-colors">Terms of Service</button>
+            <button type="button" data-legal="privacy" class="hover:text-white transition-colors">Privacy Policy</button>
+            <button type="button" data-legal="spam" class="hover:text-white transition-colors">Anti-Spam</button>
+          </div>
+          <div class="border-t border-slate-800 pt-4 text-[10px] space-y-2.5 leading-relaxed">
+            <p>&copy; 2026 The Commission. All rights reserved.</p>
+            <p>The Commission is a performance-based affiliate network. Earnings are derived solely from valid hospitality bookings. We do not charge registration fees.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <nav class="marketing-bottom-nav px-4 pt-3">
+      <div class="grid grid-cols-3 gap-2 text-center">
+        <a href="#how-it-works" class="nav-item">
+          <i class="fas fa-comments"></i>
+          How it Works
+        </a>
+        <a href="#calculator" class="nav-item">
+          <i class="fas fa-calculator"></i>
+          Earnings Calculator
+        </a>
+        <button type="button" data-auth-mode="signup" data-auth-plan="standard" class="nav-item text-slate-900">
+          <i class="fas fa-plus-circle"></i>
+          Join Free
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <section id="marketingLegalDialog" class="marketing-legal-dialog hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="marketingLegalTitle">
+    <article class="marketing-legal-card">
+      <button id="marketingLegalClose" class="marketing-legal-close" type="button" aria-label="Close policy">×</button>
+      <small class="font-black tracking-[0.18em] text-brand-600">THE COMMISSION</small>
+      <h2 id="marketingLegalTitle"></h2>
+      <p id="marketingLegalCopy"></p>
+    </article>
+  </section>
+  </section>
+  </div>
+
+<aside id="socialProof" class="social-proof" aria-live="polite" aria-atomic="true">
+  <div id="socialProofIcon" class="social-proof-icon" aria-hidden="true">↗</div>
+  <div class="social-proof-copy"><small><i></i> <span id="socialProofLabel">COMMUNITY ACTIVITY</span></small><b id="socialProofMessage"></b><span id="socialProofTime"></span></div>
+  <button id="socialProofClose" type="button" aria-label="Dismiss activity notification">×</button>
+</aside>
+<main id="appShell" class="phone hidden"><div id="toast" class="toast"></div>
+<section id="authView" class="auth-view"><button id="authBack" class="auth-back" type="button">← Back to homepage</button><div class="auth-brand"><div class="logo-orb">TC</div><span class="status-pill"><i></i><b id="modeLabel">Demo Mode</b></span><h1>The Commission</h1><p>Earn Commission by Referring Guests.</p></div><div class="auth-card glass-card"><div class="segmented" id="authTabs"><button class="active" data-auth-tab="signin">Sign in</button><button data-auth-tab="signup">Create account</button></div>
+<form id="signinForm" class="auth-form"><label>Phone number<input id="signinPhone" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]{10,15}" minlength="10" maxlength="15" placeholder="08031234567" required></label><label>Password<input id="signinPassword" type="password" autocomplete="current-password" required></label><button class="primary-btn" type="submit">Sign in <span>→</span></button><div class="demo-options"><button id="demoAmbassador" class="soft-btn" type="button">Ambassador demo</button><button id="demoManager" class="soft-btn" type="button">Manager demo</button></div></form>
+<form id="signupForm" class="auth-form hidden"><label>Full name<input id="signupName" autocomplete="name" required></label><label>Phone number<input id="signupPhone" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]{10,15}" minlength="10" maxlength="15" placeholder="08031234567" required></label><label>Password<input id="signupPassword" type="password" minlength="6" autocomplete="new-password" required></label><label>Account type<select id="signupRole"><option value="ambassador">Ambassador</option><option value="manager">Property Manager</option></select></label><label id="signupPlanField">Membership plan<select id="signupPlan"><option value="standard">Standard — Free</option><option value="silver">Silver — ₦2,500 / month</option><option value="gold">Gold — ₦15,000 / month</option><option value="diamond">Diamond — ₦50,000 / month</option></select><small id="signupPlanNote">You can change your plan before creating your account.</small></label><label class="signup-referral-field" id="signupReferralField"><span>Referral number <em>Optional</em></span><input id="signupReferralNumber" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. TC-SARKI-204"><small>Enter the permanent referral number of the Ambassador who introduced you.</small></label><button class="primary-btn" type="submit"><span id="signupSubmitLabel">Create Standard account</span><span>→</span></button></form>
+<p class="auth-note" id="authNote" aria-live="polite"></p></div></section>
+<section id="appView" class="app-view hidden"><header class="topbar"><div><small id="greeting">WELCOME BACK</small><h2 id="headerName">Sarki</h2></div><div class="top-actions"><button class="round-btn" data-open="notifications">🔔<b class="notification-dot"></b></button><button class="round-btn quick-logout" id="quickLogout" title="Sign out" aria-label="Sign out">↪</button><button class="avatar-btn" data-nav="profile" id="headerAvatar">SA</button></div></header>
+<div class="screens" id="ambassadorScreens">
+<section class="screen active authenticated-home-screen" data-screen="home" aria-label="Home">
+  <div id="authenticatedHomepageMount"></div>
+</section>
+<section class="screen" data-screen="dashboard"><article class="balance-card liquid-card"><div class="balance-head"><span>Available balance</span><button id="toggleBalance">◉</button></div><h1 id="balanceValue">₦0</h1><p><strong>Database ledger</strong> updated live</p><div class="balance-actions"><button data-open="referralCode">↗ Share my code</button><button data-nav="wallet">Withdraw</button></div></article><article class="ambassador-card-shortcut glass-card" data-open="membershipCard" role="button" tabindex="0"><div class="ambassador-card-icon">🪪</div><div><small>DIGITAL CREDENTIAL</small><h3>Ambassador Membership Card</h3><p>Open your card, permanent code and QR.</p></div><span class="shortcut-arrow">›</span></article><div class="section-heading"><div><small>YOUR PERFORMANCE</small><h3>Earnings overview</h3></div><button data-open="analytics">View report</button></div><div class="stats-grid" id="statsGrid"></div><article class="target-card clay-card"><div class="target-icon">🏆</div><div class="target-body"><div class="row"><b>Elite bonus target</b><strong id="targetPercent">0%</strong></div><p id="targetRemaining">No paid commission recorded yet.</p><div class="progress"><i id="targetProgress" style="width:0%"></i></div></div></article><div class="section-heading"><div><small>DISCOVER</small><h3>Recommended properties</h3></div><button data-nav="properties">See all</button></div><div id="featuredProperties" class="horizontal-scroll"></div><div class="section-heading"><div><small>ACTIVITY</small><h3>Recent commissions</h3></div><button data-nav="wallet">History</button></div><div id="recentTransactions" class="stack"></div></section>
+<section class="screen" data-screen="properties"><div class="page-title"><div><small>PARTNER MARKETPLACE</small><h2>Find a property</h2></div><button class="round-btn" id="resetPropertyFilters" title="Reset location filters" aria-label="Reset location filters">↻</button></div><div class="searchbar"><span>⌕</span><input id="propertySearch" placeholder="Search hotel, address, location or amenity"><button id="clearSearch">×</button></div><div class="property-location-filters"><label><span>STATE</span><select id="propertyStateFilter"><option value="">All states</option></select></label><label><span>LGA</span><select id="propertyLgaFilter" disabled><option value="">All LGAs</option></select></label><label><span>LOCATION</span><select id="propertyLocationFilter"><option value="">All locations</option></select></label></div><div class="property-results-meta"><span id="propertyResultCount">Showing all properties</span><button id="clearLocationFilters" type="button">Clear filters</button></div><div class="filter-chips" id="cityFilters" aria-label="Popular property locations"></div><div id="propertyList" class="stack"></div></section>
+<section class="screen" data-screen="network"><div class="page-title"><div><small>REFERRAL NETWORK</small><h2>Full binary network</h2></div><button class="round-btn" data-open="invite">＋</button></div><article class="network-hero liquid-card"><span class="tag">ELITE AMBASSADOR</span><h2><span id="networkTotal">0</span> visible members</h2><p>Pan, zoom and inspect your entire left-and-right team structure.</p><div class="network-split"><div><b id="networkLeft">0</b><span>Left team</span></div><div><b id="networkRight">0</b><span>Right team</span></div><div><b id="networkLevels">0</b><span>Levels</span></div></div></article><div class="section-heading"><div><small>VISUAL MAP</small><h3>Whole binary tree</h3></div><button id="fitTree">Fit tree</button></div><article class="tree-card glass-card"><div class="tree-tools"><span class="small">Drag to pan • use controls to zoom</span><div><button id="zoomOut">−</button><button id="zoomReset">100%</button><button id="zoomIn">＋</button></div></div><div class="tree-viewport" id="treeViewport"><div class="tree-canvas" id="referralTree"></div></div></article><div class="section-heading"><div><small>LEADERBOARD</small><h3>Top performers</h3></div><span class="small">Weekly</span></div><div id="leaderboard" class="stack"></div></section>
+<section class="screen" data-screen="wallet"><div class="page-title"><div><small>COMMISSION WALLET</small><h2>Money centre</h2></div><button class="round-btn" data-open="analytics" title="Open wallet report" aria-label="Open wallet report">⋯</button></div><article class="wallet-card clay-card"><small>AVAILABLE TO WITHDRAW</small><h1 id="walletBalance">₦0</h1><p>Next automatic payout: Friday</p><div class="wallet-buttons"><button data-open="withdraw">↗<span>Withdraw</span></button><button data-open="bank">▣<span>Bank</span></button><button data-open="analytics">⌁<span>Report</span></button></div></article><div class="wallet-summary"><div class="neu-card"><span>Pending</span><b id="walletPending">₦0</b></div><div class="neu-card"><span>Lifetime</span><b id="walletLifetime">₦0</b></div></div><div class="section-heading"><div><small>LEDGER</small><h3>Transactions</h3></div><span class="small">All</span></div><div id="transactionList" class="stack"></div></section>
+</div>
+<div class="screens hidden" id="managerScreens">
+<section class="screen active" data-screen="manager-home"><article class="manager-hero liquid-card"><span class="tag">PROPERTY MANAGER</span><h1 id="managerHeroRevenue">₦0</h1><p>Verified booking value across your properties.</p><div class="balance-actions"><button data-open="addProperty">＋ Add property</button><button data-open="newReferredStay">＋ Referred stay</button></div></article><div class="section-heading"><div><small>PORTFOLIO PULSE</small><h3>Manager overview</h3></div><button data-open="managerReport">Report</button></div><div class="manager-kpis" id="managerKpis"></div><article class="settlement-card glass-card"><div class="row"><div><small>WEEKLY SETTLEMENT</small><h3>Hotel commission account</h3></div><span class="status pending" id="settlementStatus">Due Friday</span></div><div class="settlement-grid" id="settlementSummary"></div><button class="soft-btn settlement-action" data-open="settlementStatement">View weekly statement</button></article><article class="occupancy-card clay-card"><div class="row"><div><small>OCCUPANCY</small><h3>Portfolio occupancy</h3></div><b id="managerOccupancyHeader">0%</b></div><div class="occupancy-ring"><b id="managerOccupancyRing">0%</b></div><p class="auth-note" id="managerRooms">Across 0 available rooms in your active properties.</p></article><div class="section-heading"><div><small>ACTIVE STAYS</small><h3>Referred stays to manage</h3></div><button data-nav="manager-bookings">View all</button></div><div id="managerPendingPreview" class="stack"></div></section>
+<section class="screen" data-screen="manager-properties"><div class="page-title"><div><small>YOUR PORTFOLIO</small><h2>Properties</h2></div><button class="round-btn" data-open="addProperty">＋</button></div><div class="searchbar"><span>⌕</span><input id="managerPropertySearch" placeholder="Search your properties"><button id="clearManagerPropertySearch" type="button" aria-label="Clear property search">×</button></div><div id="managerPropertyList" class="stack"></div></section>
+<section class="screen" data-screen="manager-referrals"><div class="page-title"><div><small>REFERRAL CODE DESK</small><h2>Referred stays</h2></div><button class="round-btn" data-open="newReferredStay">＋</button></div><article class="glass-card" style="padding:15px;margin-bottom:12px"><b>Referral inbox</b><p class="sheet-copy">When a guest gives a permanent Ambassador code, reception opens one referred stay. Add payments or extensions as they happen; the guest has no extra steps.</p></article><div id="managerReferralList" class="stack"></div></section>
+<section class="screen" data-screen="manager-bookings"><div class="page-title"><div><small>STAY CONTROL</small><h2>Referred stay ledger</h2></div><span class="status confirmed">Live ledger</span></div><div class="filter-chips" id="bookingFilters"><button class="active" data-status="all">All</button><button data-status="active">Active</button><button data-status="completed">Completed</button><button data-status="cancelled">Cancelled</button></div><div id="managerBookingList" class="stack"></div></section>
+</div>
+<section class="screen screens hidden" id="profileScreen" data-screen="profile"><div class="page-title"><div><small>MY ACCOUNT</small><h2>Profile</h2></div><button class="round-btn" data-open="settings">⚙</button></div><article class="profile-card glass-card"><div class="profile-avatar" id="profileAvatar">SA</div><h2 id="profileName">Sarki Amada</h2><p id="profileRole">Elite Ambassador</p><span class="verified">✓ Identity verified</span><div class="profile-metrics" id="profileMetrics"></div></article><div class="menu-list"><button data-open="editProfile"><span class="menu-icon">👤</span><div><b>Personal information</b><small>Edit account details</small></div><i>›</i></button><button data-open="membershipCard"><span class="menu-icon">🪪</span><div><b>Membership card</b><small>View and download your digital card</small></div><i>›</i></button><button data-open="referralCode" id="referralMenu"><span class="menu-icon">🔗</span><div><b>Permanent referral code</b><small id="referralCodeText">TC-SARKI-204</small></div><i>›</i></button><button data-open="bank"><span class="menu-icon">🏦</span><div><b>Payout account</b><small id="payoutAccountSummary">GTBank •••• 6789</small></div><i>›</i></button><button id="logoutBtn" class="danger"><span class="menu-icon">↪</span><div><b>Sign out</b><small>End this session</small></div><i>›</i></button></div></section>
+</section>
+<nav class="bottom-nav hidden" id="ambassadorNav" aria-label="Primary navigation">
+  <button class="active" data-nav="home" aria-label="Home"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 8-7 8 7v10h-6v-6h-4v6H4Z"/></svg></i><span>Home</span></button>
+  <button data-nav="properties" aria-label="Properties"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16v18H4zM8 3v18M12 3v18M16 3v18M4 8h16M4 13h16M4 18h16"/></svg></i><span>Properties</span></button>
+  <button class="center-action" data-nav="dashboard" aria-label="Book"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></i><span>Book</span></button>
+  <button data-nav="network" aria-label="Network"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="13" r="3"/><circle cx="19" cy="13" r="3"/><circle cx="12" cy="19" r="3"/><path d="m10 7-3 4m7-4 3 4M8 14.5l2 2m6-2-2 2"/></svg></i><span>Network</span></button>
+  <button data-nav="wallet" aria-label="Wallet"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-2 10H3Z"/></svg></i><span>Wallet</span></button>
+</nav>
+<nav class="bottom-nav hidden" id="managerNav" aria-label="Manager navigation">
+  <button class="active" data-nav="manager-home" aria-label="Home"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 8-7 8 7v10h-6v-6h-4v6H4Z"/></svg></i><span>Home</span></button>
+  <button data-nav="manager-properties" aria-label="Properties"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16v18H4zM8 3v18M12 3v18M16 3v18M4 8h16M4 13h16M4 18h16"/></svg></i><span>Properties</span></button>
+  <button class="center-action" data-open="addProperty" aria-label="Add property"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></i><span>Add</span></button>
+  <button data-nav="manager-referrals" aria-label="Stays"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16v12H4zM7 7V4h10v3M8 12h8m-4-4v8"/></svg></i><span>Stays</span></button>
+  <button data-nav="manager-bookings" aria-label="Ledger"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h14v18H5zM8 8h8M8 12h8M8 16h5"/></svg></i><span>Ledger</span></button>
+</nav>
+<section id="referralOmissionPrompt" class="referral-omission-prompt hidden" role="dialog" aria-modal="true" aria-labelledby="referralPromptTitle" aria-describedby="referralPromptCopy" tabindex="-1">
+  <article class="referral-prompt-card glass-card">
+    <div class="referral-prompt-icon" aria-hidden="true">⌁</div>
+    <small id="referralPromptStep">REFERRAL CHECK</small>
+    <h2 id="referralPromptTitle"></h2>
+    <p id="referralPromptCopy"></p>
+    <div class="referral-prompt-actions"><button id="referralPromptBack" class="soft-btn" type="button"></button><button id="referralPromptContinue" class="primary-btn" type="button"></button></div>
+  </article>
+</section>
+<div id="sheetBackdrop" class="sheet-backdrop hidden"></div><section id="modalSheet" class="modal-sheet hidden"><div class="sheet-handle"></div><button id="closeSheet" class="sheet-close">×</button><div id="sheetContent"></div></section></main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="config.js?v=20260816-db-1"></script>
+  <script src="nigeria-locations.js"></script>
+  <script src="marketing.js?v=20260815-unified-1"></script>
+  <script src="app.js?v=20260816-db-1"></script>
+</body>
+</html>
